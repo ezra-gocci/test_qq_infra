@@ -111,7 +111,17 @@ function Start-Runtime {
     }
     
     # Run the Python script within the activated virtual environment
-    & "$venvPath/Scripts/python.exe" $pythonScript
+    & "$venvPath/Scripts/python.exe" $pythonScript "
+        | --mssql-url 'sqlserver://rds-proxy-prod.proxy-cx0goossu17s.eu-west-2.rds.amazonaws.com:1433'
+        | --aws-secret-name 'rds!db-17d88296-4ace-4b69-9ae5-e49af8e6d9a8'
+        | --aws-region 'eu-west-2'
+        | --ssh-host '10.0.1.75'
+        | --ssh-user 'ubuntu'
+        | --ssh-key-path 'D:\Users\dev-1\.ssh\kp-inst-gpu-qq.pem'
+        | --winrm-host 'WSAMZN-F4DN4PG4.development.workspaces.qq'
+        | --winrm-user 'dev-1'
+        | --winrm-password '!@#QWEasdzxc'
+        "
     
     Set-Location ..
     
