@@ -340,74 +340,75 @@ class MultiOperationsScript:
                 # transport=protocol,
                 # server_cert_validation='ignore' if self.args.winrm_use_ssl else None
             )
+            session.run_ps("ls")
             
-            # Step 2: Check connectivity and get system information
-            logger.info("Step 2: Checking connectivity and retrieving system information")
-            result = session.run_ps("systeminfo | findstr /B /C:\"Host Name\" /C:\"OS Name\" /C:\"OS Version\" /C:\"System Type\"")
+            # # Step 2: Check connectivity and get system information
+            # logger.info("Step 2: Checking connectivity and retrieving system information")
+            # result = session.run_ps("systeminfo | findstr /B /C:\"Host Name\" /C:\"OS Name\" /C:\"OS Version\" /C:\"System Type\"")
             
-            if result.status_code == 0:
-                system_info = result.std_out.decode('utf-8', 'ignore').strip()
-                logger.info(f"Remote system information:\n{system_info}")
-            else:
-                error = result.std_err.decode('utf-8', 'ignore').strip()
-                logger.warning(f"Failed to retrieve system information. Error: {error}")
-                logger.warning("Continuing with the operation...")
+            # if result.status_code == 0:
+            #     system_info = result.std_out.decode('utf-8', 'ignore').strip()
+            #     logger.info(f"Remote system information:\n{system_info}")
+            # else:
+            #     error = result.std_err.decode('utf-8', 'ignore').strip()
+            #     logger.warning(f"Failed to retrieve system information. Error: {error}")
+            #     logger.warning("Continuing with the operation...")
             
-            # Step 3: Get IP and domain information
-            logger.info("Step 3: Retrieving IP and domain information")
-            result = session.run_ps("ipconfig | findstr /i \"IPv4 Address\"")
+            # # Step 3: Get IP and domain information
+            # logger.info("Step 3: Retrieving IP and domain information")
+            # result = session.run_ps("ipconfig | findstr /i \"IPv4 Address\"")
             
-            if result.status_code == 0:
-                ip_info = result.std_out.decode('utf-8', 'ignore').strip()
-                logger.info(f"Remote system IP information:\n{ip_info}")
-            else:
-                logger.warning("Could not retrieve IP information")
+            # if result.status_code == 0:
+            #     ip_info = result.std_out.decode('utf-8', 'ignore').strip()
+            #     logger.info(f"Remote system IP information:\n{ip_info}")
+            # else:
+            #     logger.warning("Could not retrieve IP information")
             
-            # Get domain information
-            result = session.run_ps("echo %USERDOMAIN%")
+            # # Get domain information
+            # result = session.run_ps("echo %USERDOMAIN%")
             
-            if result.status_code == 0:
-                domain_info = result.std_out.decode('utf-8', 'ignore').strip()
-                logger.info(f"Remote system domain: {domain_info}")
-            else:
-                logger.warning("Could not retrieve domain information")
+            # if result.status_code == 0:
+            #     domain_info = result.std_out.decode('utf-8', 'ignore').strip()
+            #     logger.info(f"Remote system domain: {domain_info}")
+            # else:
+            #     logger.warning("Could not retrieve domain information")
             
-            # Step 4: Prepare script for remote execution
-            logger.info("Step 4: Preparing for script execution on remote system")
+            # # Step 4: Prepare script for remote execution
+            # logger.info("Step 4: Preparing for script execution on remote system")
             
-            # Get the current script path and content
-            current_script = os.path.abspath(sys.argv[0])
-            logger.info(f"Current script path: {current_script}")
+            # # Get the current script path and content
+            # current_script = os.path.abspath(sys.argv[0])
+            # logger.info(f"Current script path: {current_script}")
             
-            # In a real scenario, you'd need to transfer the script to the remote system
-            # For demonstration, we'll create a simple PowerShell command that simulates running our script
+            # # In a real scenario, you'd need to transfer the script to the remote system
+            # # For demonstration, we'll create a simple PowerShell command that simulates running our script
             
-            # Create a PowerShell command that would run our script with recursion prevention
-            script_args = " ".join(sys.argv[1:])  # Original arguments
-            script_args += f" {RECURSION_FLAG}"   # Add recursion prevention flag
+            # # Create a PowerShell command that would run our script with recursion prevention
+            # script_args = " ".join(sys.argv[1:])  # Original arguments
+            # script_args += f" {RECURSION_FLAG}"   # Add recursion prevention flag
             
-            # Step 5: Execute a simplified version of our functionality on the remote system
-            logger.info("Step 5: Executing script simulation on remote system")
+            # # Step 5: Execute a simplified version of our functionality on the remote system
+            # logger.info("Step 5: Executing script simulation on remote system")
             
-            # This simulates running our script on the remote system
-            ps_script = f"""
-            Write-Host "=== RUNNING PYTHON SCRIPT ON REMOTE SYSTEM (SIMULATION) ==="
-            Write-Host "Script would be executed with these arguments: {script_args}"
-            Write-Host "Current system: $env:COMPUTERNAME"
-            Write-Host "Current user: $env:USERNAME"
-            Write-Host "Recursion prevention active: True (via {RECURSION_FLAG})"
-            Write-Host "Script execution completed on remote system"
-            """
+            # # This simulates running our script on the remote system
+            # ps_script = f"""
+            # Write-Host "=== RUNNING PYTHON SCRIPT ON REMOTE SYSTEM (SIMULATION) ==="
+            # Write-Host "Script would be executed with these arguments: {script_args}"
+            # Write-Host "Current system: $env:COMPUTERNAME"
+            # Write-Host "Current user: $env:USERNAME"
+            # Write-Host "Recursion prevention active: True (via {RECURSION_FLAG})"
+            # Write-Host "Script execution completed on remote system"
+            # """
             
-            result = session.run_ps(ps_script)
+            # result = session.run_ps(ps_script)
             
-            if result.status_code == 0:
-                remote_output = result.std_out.decode('utf-8', 'ignore').strip()
-                logger.info(f"Remote execution output:\n{remote_output}")
-            else:
-                error = result.std_err.decode('utf-8', 'ignore').strip()
-                logger.error(f"Failed to execute script on remote system. Error: {error}")
-                raise RuntimeError("Remote script execution failed")
+            # if result.status_code == 0:
+            #     remote_output = result.std_out.decode('utf-8', 'ignore').strip()
+            #     logger.info(f"Remote execution output:\n{remote_output}")
+            # else:
+            #     error = result.std_err.decode('utf-8', 'ignore').strip()
+            #     logger.error(f"Failed to execute script on remote system. Error: {error}")
+            #     raise RuntimeError("Remote script execution failed")
             
             logger.info("WinRM operations completed successfully")
             
