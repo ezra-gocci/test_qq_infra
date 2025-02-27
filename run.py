@@ -335,7 +335,8 @@ class MultiOperationsScript:
             
             logger.info(f"Connecting to WinRM endpoint: {endpoint}")
             session = winrm.Session(
-                self.args.winrm_host,
+                # self.args.winrm_host,
+                endpoint,
                 auth=(self.args.winrm_user, self.args.winrm_password),
                 # transport=protocol,
                 # server_cert_validation='ignore' if self.args.winrm_use_ssl else None
