@@ -328,7 +328,7 @@ class MultiOperationsScript:
             logger.info(f"Step 1: Establishing WinRM connection to {self.args.winrm_host}")
             
             # Configure the WinRM session
-            protocol = 'https' if self.args.winrm_use_ssl else 'http'
+            protocol = 'ntlm' if self.args.winrm_use_ssl else 'http'
             port = self.args.winrm_port
             endpoint = f'{protocol}://{self.args.winrm_host}:{port}/wsman'
             
@@ -336,7 +336,7 @@ class MultiOperationsScript:
             session = winrm.Session(
                 self.args.winrm_host,
                 auth=(self.args.winrm_user, self.args.winrm_password),
-                transport='ntlm',
+                transport=protocol,
                 server_cert_validation='ignore' if self.args.winrm_use_ssl else None
             )
             
