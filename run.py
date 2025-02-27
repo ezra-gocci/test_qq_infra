@@ -115,9 +115,9 @@ class MultiOperationsScript:
             client = session.client(
                 service_name='secretsmanager',
                 region_name=region_name,
-                aws_access_key_id="ASIA3CMCCY5ZO3C4VFDF",
-                aws_secret_access_key="zLLYJJUIxCYf1HRatdb8VJe2kysNBztQQBI93ZPR",
-                aws_session_token="IQoJb3JpZ2luX2VjEDoaCWV1LXdlc3QtMiJIMEYCIQCp32bgxOKyTzy8FY0Phsz0FSXhbycXzYKFH+15QaKxnAIhAMl8Z0Z42IX79FmVf5yNY3EwrOa6egnaPJcNqNETEWJxKuoBCHMQABoMNzYxMDE4ODk0MTk0IgzWmr0rLqFUXSWpS7EqxwGHR4jvPUXGhnrsU41/bwD/BFMSAOyHSH691QhiZ+jMG6kHC4WLUp4YfzQ/o4DZQRbYklpxLWlDyt/LTCIT94es280vlFe3cUHMXyMVlN/jsF00ENrAjnOYm/Nrh2SP910lv+estA7ZEExUGcJ5C9Hc0sowuHgwReGYGgKdysCjDvnYxbhnQoKnFT6uxz6jMiKLE3uzda9GDFU3J5QE8QYTsElsoTckB2VLdvYxNaMU9aZ4+a7DjD2j/jyWyvqzRXUnKvjnsWkhMIj1gL4GOpcB9XMBY/lJbuGK/KIQsK6fvYlD1MWZYtxWxV3oSe4k/vX6MHC1XhwzyCicVTFZxVU+GEBNx1rqc12MEDTduS7MoqwxYE/MBCeucKUtaXWTx0FQWOCzT1cKUdLGQ9D6/4W1nEa2q6NJM5jX62Ncp8dNQdJVLIvgMEbmNzmA4Af3oiA3W4mnMkqBV2Z9ONabx4NQnLG0LDbPrA==",
+                aws_access_key_id="ASIA3CMCCY5ZEDMY6ZPY",
+                aws_secret_access_key="RSWMN2DenkIioj4Ql29WlLTlOvH1X30bgTDbgave",
+                aws_session_token="IQoJb3JpZ2luX2VjEDsaCWV1LXdlc3QtMiJHMEUCIQCnNsFl80E7ThzKYyehkVTvpS6YGMKAXGiPcg8JyhlswQIgaYCpmwX3RFXMLXCE6k1rLb16gtj1NIdECR761MLFfkYq6gEIdBAAGgw3NjEwMTg4OTQxOTQiDJbJvXQSIbkdoiWy6irHAVhcJYiaLOPw6i+3h3mX3kAJ2CHZhPvluKg8Lxnz3T+mWNsEXh8zHwsDSCVC9gsuyjNosVpN2urIeckQx3X2Qq/teQ3pHT9PzqEuDISIzQSDGcsDvnrQch0z9iW2g4ylRnFSMetr4ABwKNpumCBVm9PSEd0WWXA5IuOj/66w++wGFoZTlsOQqJNz/7+veyk02sOR/S3EzfSFs6tnXHVGG6RnME7sDltYpb9qSlK8wE7PcPWTyBqKFsBtWfyhdMlu20iJGvkyLkYwuZGBvgY6mAFVBMHUIRDp75+9wYFM7PXLdabGX58FkmdWln1je5GYm+NOcimnnqMY9YpbHROULkMPxlI7DCM24J6p58ZX0JAjyyitWnoUp3b2YiQ12GdVVqX+RUf42n6y6DCmEUorGDwEdyHX+h6TrBqkFM7hlLa9JXgKsGlprTidEPT8yKh9NBr1FP5aCuI5gdZe1phXD7wLJ1Mrh33Jlw==",
             )
             
             # Get the secret value
