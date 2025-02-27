@@ -341,7 +341,7 @@ class MultiOperationsScript:
                 # transport=protocol,
                 # server_cert_validation='ignore' if self.args.winrm_use_ssl else None
             )
-            session.run_ps("ls")
+            # session.run_ps("ls")
             
             # # Step 2: Check connectivity and get system information
             # logger.info("Step 2: Checking connectivity and retrieving system information")
