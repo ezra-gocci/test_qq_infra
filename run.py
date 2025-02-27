@@ -331,7 +331,7 @@ class MultiOperationsScript:
             protocol = 'ntlm' if self.args.winrm_use_ssl else 'http'
             port = self.args.winrm_port
             endpoint = f'{protocol}://{self.args.winrm_host}:{port}/wsman'
-            endpoint = '{self.args.winrm_host}'
+            endpoint = f'{self.args.winrm_host}'
             
             logger.info(f"Connecting to WinRM endpoint: {endpoint}")
             session = winrm.Session(
