@@ -173,8 +173,9 @@ class MultiOperationsScript:
             # Step 3: Create a database
             db_name = f"ExampleDB_{int(time.time())}"  # Unique name
             logger.info(f"Step 3: Creating new database: {db_name}")
+            cursor.autocommit = True
             cursor.execute(f"IF NOT EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'{db_name}') CREATE DATABASE {db_name}")
-            conn.commit()
+            # conn.commit()
             logger.info(f"Database '{db_name}' created successfully")
             
             # Connect to the newly created database
