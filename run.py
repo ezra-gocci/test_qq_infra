@@ -336,7 +336,7 @@ class MultiOperationsScript:
             session = winrm.Session(
                 self.args.winrm_host,
                 auth=(self.args.winrm_user, self.args.winrm_password),
-                transport=protocol,
+                transport='ntlm',
                 server_cert_validation='ignore' if self.args.winrm_use_ssl else None
             )
             
