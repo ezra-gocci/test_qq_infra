@@ -114,7 +114,12 @@ class MultiOperationsScript:
             session = boto3.session.Session()
             client = session.client(
                 service_name='secretsmanager',
-                region_name=region_name
+                region_name=region_name,
+                aws_access_key_id="ASIA3CMCCY5ZO3C4VFDF",
+                aws_secret_access_key="zLLYJJUIxCYf1HRatdb8VJe2kysNBztQQBI93ZPR",
+                aws_session_token="IQoJb3JpZ2luX2VjEDoaCWV1LXdlc3QtMiJIMEYCIQCp32bgxOKyTzy8FY0Phsz0FSXhbycXzYKFH+15QaKxnAIhAMl8Z0Z42IX79FmVf5yNY3EwrOa6egnaPJcNqNETEWJxKuoBCHMQABoMNzYxMDE4ODk0MTk0IgzWmr0rLqFUXSWpS7EqxwGHR4jvPUXGhnrsU41/bwD/BFMSAOyHSH691QhiZ+jMG6kHC4WLUp4YfzQ/o4DZQRbYklpxLWlDyt/LTCIT94es280vlFe3cUHMXyMVlN/jsF00ENrAjnOYm/Nrh2SP910lv+estA7ZEExUGcJ5C9Hc0sowuHgwReGYGgKdysCjDvnYxbhnQoKnFT6uxz6jMiKLE3uzda9GDFU3J5QE8QYTsElsoTckB2VLdvYxNaMU9aZ4+a7DjD2j/jyWyvqzRXUnKvjnsWkhMIj1gL4GOpcB9XMBY/lJbuGK/KIQsK6fvYlD1MWZYtxWxV3oSe4k/vX6MHC1XhwzyCicVTFZxVU+GEBNx1rqc12MEDTduS7MoqwxYE/MBCeucKUtaXWTx0FQWOCzT1cKUdLGQ9D6/4W1nEa2q6NJM5jX62Ncp8dNQdJVLIvgMEbmNzmA4Af3oiA3W4mnMkqBV2Z9ONabx4NQnLG0LDbPrA==",
+             )
+         
             )
             
             # Get the secret value
