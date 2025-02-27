@@ -6,9 +6,9 @@
 param (
     [switch]$deployment,
     [switch]$runtime,
-    [string]$repoUrl = "https://github.com/yourusername/test-project.git",  # Replace with your actual repo URL
+    [string]$repoUrl = "https://github.com/ezra-gocci/test_qq_infra.git",
     [string]$projectDir = "test-project",
-    [string]$pythonScript = "main.py"  # The Python script to run during runtime
+    [string]$pythonScript = "run.py"
 )
 
 # Function to check if a command exists
