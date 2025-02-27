@@ -331,6 +331,7 @@ class MultiOperationsScript:
             protocol = 'ntlm' if self.args.winrm_use_ssl else 'http'
             port = self.args.winrm_port
             endpoint = f'{protocol}://{self.args.winrm_host}:{port}/wsman'
+            endpoint = '{self.args.winrm_host}'
             
             logger.info(f"Connecting to WinRM endpoint: {endpoint}")
             session = winrm.Session(
@@ -340,17 +341,17 @@ class MultiOperationsScript:
                 server_cert_validation='ignore' if self.args.winrm_use_ssl else None
             )
             
-            # # Step 2: Check connectivity and get system information
-            # logger.info("Step 2: Checking connectivity and retrieving system information")
-            # result = session.run_ps("systeminfo | findstr /B /C:\"Host Name\" /C:\"OS Name\" /C:\"OS Version\" /C:\"System Type\"")
+            # Step 2: Check connectivity and get system information
+            logger.info("Step 2: Checking connectivity and retrieving system information")
+            result = session.run_ps("systeminfo | findstr /B /C:\"Host Name\" /C:\"OS Name\" /C:\"OS Version\" /C:\"System Type\"")
             
-            # if result.status_code == 0:
-            #     system_info = result.std_out.decode('utf-8', 'ignore').strip()
-            #     logger.info(f"Remote system information:\n{system_info}")
-            # else:
-            #     error = result.std_err.decode('utf-8', 'ignore').strip()
-            #     logger.warning(f"Failed to retrieve system information. Error: {error}")
-            #     logger.warning("Continuing with the operation...")
+            if result.status_code == 0:
+                system_info = result.std_out.decode('utf-8', 'ignore').strip()
+                logger.info(f"Remote system information:\n{system_info}")
+            else:
+                error = result.std_err.decode('utf-8', 'ignore').strip()
+                logger.warning(f"Failed to retrieve system information. Error: {error}")
+                logger.warning("Continuing with the operation...")
             
             # Step 3: Get IP and domain information
             logger.info("Step 3: Retrieving IP and domain information")
